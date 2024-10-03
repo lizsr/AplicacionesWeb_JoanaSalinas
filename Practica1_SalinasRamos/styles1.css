@@ -1,0 +1,84 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #daf7c6;
+    color: #191a19;
+}
+
+/* Estilos de la barra de navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Estilos para los encabezados */
+h1 {
+    color: #cd2bed;
+}
+
+h2 {
+    color: #f138ee;
+}
+
+/* Estilo para el formulario */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1px;
+    margin-bottom: 10px;
+    border: 1px solid #e7acac;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #6df071;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+#contacto {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    text-align: center;
+}
+
+#contacto form {
+    width: 100%; 
+    max-width: 500px;
+}
+header {
+    text-align: center; 
+    padding: 20px; 
+}
+
+/* Estilos para la imagen */
+header img {
+    max-width: 100%;
+    height: auto; 
+}
