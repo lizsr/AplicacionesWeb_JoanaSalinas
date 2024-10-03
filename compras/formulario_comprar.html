@@ -1,66 +1,298 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Compra</title>
-    <link rel="stylesheet" href="../styles1.css"> <!-- Ruta al archivo CSS -->
-    
+    <title>Método de Pago</title>
+    <link rel="stylesheet" href="../styles1.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #e8f5fa; /* Fondo claro */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%; 
+            margin-top: 20px; /* Espacio superior */
+        }
+        .producto-imagen {
+            max-width: 300px; 
+            margin-left: 20px;
+            filter: blur(2px); 
+        }
+        .formulario-pago {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 100%; 
+            max-width: 600px; 
+            text-align: center; 
+        }
+        h2 {
+            color: #4A90E2; /* Color para los títulos */
+            margin: 20px 0; /* Espacio superior e inferior */
+        }
+        .payment-method {
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition:transform 0.4s ease;
+            width: 100%; 
+        }
+        .payment-method:hover {
+            background: #f0f0f0;
+        }
+        .payment-method.selected {
+            background: #d0e7ff;
+            border-color: #0056b3;
+        }
+        .tono-caja {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: trasforms 0.3s ease;
+            width: 80px; 
+        }
+        .tono-caja:hover {
+            background: #f0f0f0;
+        }
+        .tono-caja.selected {
+            background: #d0e7ff;
+            border-color: #0056b3;
+        }
+        .tono-container {
+            display: none; /* Ocultar por defecto */
+            margin-top: 10px;
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+        .muestra-tono {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <a href="../index.html">Volver a la página principal</a>
+    <div class="encabezado">
+        <nav>
+            <ul>
+                <li><a href="#Inicio">Inicio</a></li>
+                <li><a href="#Sobre_mi">Sobre mí</a></li>
+                <li><a href="#galeria-productos">Productos</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <img src="../assets/fondo_1.jpg" alt="Portada 1">
     </div>
-    <h1></h1>
-    <form id="compra-form" action="#" method="post">
-       <h1>Metodo de pago</h1>
-        <br>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <br>
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" min="1" required>
-        <br>
-        <label for="metodo-pago">Método de pago:</label>
-        <div class="payment-methods">
-            <input type="radio" id="tarjeta" name="metodo-pago" value="tarjeta" required>
-            <label for="tarjeta">Tarjeta de crédito/débito</label>
+
+    <h1>M E T O D O__D E__P A G O</h1>
+    <div class="container">
+        <form id="compra-form" action="#" method="post" class="formulario-pago">
+            <h2>Información del Cliente</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
             <br>
-            <input type="radio" id="paypal" name="metodo-pago" value="paypal">
-            <label for="paypal">PayPal</label>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" required>
             <br>
-            <input type="radio" id="transferencia" name="metodo-pago" value="transferencia">
-            <label for="transferencia">Transferencia bancaria</label>
-        </div>
-        <br>
-        <input type="submit" value="Comprar">
-    </form>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            <br>
+
+            <h2>Selecciona un Producto</h2>
+            <label for="producto-select">Producto:</label>
+            <select id="producto-select">
+                <option value="">-- Seleccionar --</option>
+                <option value="labial">Labial</option>
+                <option value="Blush">Blush</option>
+                <option value="Polvo de hadas">Polvo de hadas</option>
+                <option value="Brochas">Brochas</option>
+                <option value="Mascarillas">Mascarillas</option>
+            </select>
+            
+
+            <div id="opciones-labial" class="tono-container">
+                <h2>Selecciona un Tono:</h2>
+                <div class="tono-caja" data-tono="Power Red">
+                    <div class="muestra-tono" style="background-color: #C62828;"></div> Power Red
+                </div>
+                <div class="tono-caja" data-tono="Cherry Red">
+                    <div class="muestra-tono" style="background-color: #D50000;"></div> Cherry Red
+                </div>
+                <div class="tono-caja" data-tono="Orange Tangerine">
+                    <div class="muestra-tono" style="background-color: #FF5722;"></div> Orange Tangerine
+                </div>
+                <div class="tono-caja" data-tono="Vibrant Orange">
+                    <div class="muestra-tono" style="background-color: #FF9800;"></div> Vibrant Orange
+                </div>
+            </div>
+            <br>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" required>
+            <br>
+
+            <div id="opciones-blush-tono" class="tono-container">
+                <h2>Selecciona un Tono para Blush:</h2>
+                <div class="tono-caja" data-tono="Lovely">
+                    <div class="muestra-tono" style="background-color: #f7614a;"></div> Lovely
+                </div>
+                <div class="tono-caja" data-tono="Dainty">
+                    <div class="muestra-tono" style="background-color: #6c4616;"></div> Dainty
+                </div>
+                <div class="tono-caja" data-tono="Darling">
+                    <div class="muestra-tono" style="background-color: #eb528f;"></div> Darling
+                </div>
+                <div class="tono-caja" data-tono="Precious">
+                    <div class="muestra-tono" style="background-color: #ee97a8;"></div> Precious
+                </div>
+            </div>
+            <br>
+            
+
+            <div id="opciones-brochas" class="tono-container">
+                <h2>Selecciona el Tipo de Brochas:</h2>
+                <select id="tipo-brochas">
+                    <option value="">-- Seleccionar --</option>
+                    <option value="Brochas para ojos">Brochas para base</option>
+                    <option value="Brochas para rostro">Brochas para contornear</option>
+                    <option value="Brochas para rostro">Brochas para polvo</option>
+                    <option value="Brochas para rostro">Brochas para eliminar excesos de maquillaje</option>
+                    <option value="Brochas para rostro">Brochas para sombra</option>
+                </select>
+               
+            </div>
+
+            <div id="opciones-polvo-hadas" class="tono-container">
+                <h2>Selecciona el Tamaño:</h2>
+                <select id="tamaño-polvo-hadas">
+                    <option value="">-- Seleccionar tamaño --</option>
+                    <option value="Pequeño">Pequeño_10g</option>
+                    <option value="Mediano">Mediano_15g</option>
+                    <option value="Grande">Grande_25g</option>
+                </select>
+
+                <div id="opciones-polvo-hadas" class="tono-container">
+                    <h2>Selecciona un Tono :</h2>
+                    <div class="tono-caja" data-tono="pink">
+                        <div class="muestra-tono" style="background-color: #f1bfde;"></div> Pink
+                    </div>
+                    <div class="tono-caja" data-tono="white">
+                        <div class="muestra-tono" style="background-color: white;"></div> White 
+
+                </div>
+            </div>
+
+            <div id="opciones-mascarillas" class="tono-container">
+                <h2>Selecciona el Tipo de Mascarilla:</h2>
+                <select id="tipo-mascarilla">
+                    <option value="">-- Seleccionar --</option>
+                    <option value="Aclarante">Aclarante</option>
+                    <option value="Exfoliante">Exfoliante</option>
+                    <option value="Hidratante">Hidratante</option>
+                </select>
+            </div>
+
+            <h2>M E T O D O__D E__P A G O:</h2>
+            <div class="payment-methods">
+                <div class="payment-method" id="tarjeta" data-value="tarjeta">Tarjeta de crédito/débito</div>
+                <div class="payment-method" id="paypal" data-value="paypal">PayPal</div>
+                <div class="payment-method" id="transferencia" data-value="transferencia">Transferencia bancaria</div>
+            </div>
+            <br>
+            <input type="submit" value="Comprar">
+        </form>
+
+        <img id="producto-imagen" class="producto-imagen" alt="Imagen del producto">
+    </div>
+
     <div id="mensaje-gracias" class="message" style="display: none;">
         Gracias por su compra. 
     </div>
 
     <script>
-        // Función para obtener parámetros de la URL
-        function obtenerParametro(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+        const productoSelect = document.getElementById('producto-select');
+        const opcionesTono = document.getElementById('opciones-tono');
+        const opcionesBlushTono = document.getElementById('opciones-blush-tono');
+        const opcionesBrochas = document.getElementById('opciones-brochas');
+        const opcionesPolvoHadas = document.getElementById('opciones-polvo-hadas');
+        const opcionesMascarillas = document.getElementById('opciones-mascarillas');
+        const productoImagen = document.getElementById('producto-imagen');
+        
+        productoSelect.addEventListener('change', function() {
+            const producto = this.value;
+            opcionesTono.style.display = 'none';
+            opcionesBlushTono.style.display = 'none';
+            opcionesBrochas.style.display = 'none';
+            opcionesPolvoHadas.style.display = 'none';
+            opcionesMascarillas.style.display = 'none';
+            productoImagen.src = ''; // Limpiar imagen al cambiar de producto
 
-        // Al cargar la página, establece el valor del campo del producto
-        document.addEventListener('DOMContentLoaded', function() {
-            const producto = obtenerParametro('producto');
-            if (producto) {
-                document.getElementById('producto').value = decodeURIComponent(producto);
+            switch (producto) {
+                case 'Tinta de labios':
+                    opcionesTono.style.display = 'block';
+                    productoImagen.src = '../assets/labial.jpg'; // Cambia a la imagen correspondiente
+                    break;
+                case 'Blush':
+                    opcionesBlushTono.style.display = 'block';
+                    productoImagen.src = '../assets/blush.jpg'; // Cambia a la imagen correspondiente
+                    break;
+                case 'Brochas':
+                    opcionesBrochas.style.display = 'block';
+                    productoImagen.src = '../assets/brochas.jpg'; // Cambia a la imagen correspondiente
+                    break;
+                case 'Polvo de hadas':
+                    opcionesPolvoHadas.style.display = 'block';
+                    productoImagen.src = '../assets/polvo_de_hadas.jpg'; // Cambia a la imagen correspondiente
+                    break;
+                case 'Mascarillas':
+                    opcionesMascarillas.style.display = 'block';
+                    productoImagen.src = '../assets/mascarillas.jpg'; // Cambia a la imagen correspondiente
+                    break;
             }
+        });
+
+        // Manejo de los tonos
+        const tonoCajas = document.querySelectorAll('.tono-caja');
+        tonoCajas.forEach(caja => {
+            caja.addEventListener('click', function() {
+                tonoCajas.forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Manejo de los métodos de pago
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                this.classList.add('selected');
+            });
         });
 
         // Manejo del envío del formulario
         document.getElementById('compra-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Evita que el formulario se envíe realmente
-            document.getElementById('compra-form').style.display = 'none'; // Oculta el formulario
+            this.style.display = 'none'; // Oculta el formulario
             document.getElementById('mensaje-gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
         });
     </script>
@@ -68,4 +300,3 @@
 </html>
 
 
-   
