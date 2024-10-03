@@ -1,8 +1,8 @@
 /* Estilos globales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #daf7c6;
-    color: #191a19;
+    font-family: lucida system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color:#fbfdfe;
+    color: #060606 lack;;
 }
 
 /* Estilos de la barra de navegación */
@@ -26,11 +26,12 @@ nav ul li a:hover {
 
 /* Estilos para los encabezados */
 h1 {
-    color: #cd2bed;
+    color: #430ef0;
 }
 
 h2 {
-    color: #f138ee;
+    color: #430ef0;
+    text-align: center;
 }
 
 /* Estilo para el formulario */
@@ -64,14 +65,53 @@ input[type="submit"]:hover {
     flex-direction: column;
     align-items: center; 
     justify-content: center; 
-    height: 100vh;
+    min-height: 300px; /* Altura mínima para asegurar que haya suficiente espacio */
+    height: 100vh; /* Altura completa del viewport */
     text-align: center;
+    padding: 20px;
 }
 
 #contacto form {
-    width: 100%; 
-    max-width: 500px;
+    background: #f9f9f9; /* Fondo blanco o color claro para el formulario */
+    border: 1px solid #ddd; /* Borde gris claro para el formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px;
+    max-width: 500px; /* Ajusta el ancho máximo según tus necesidades */
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el formulario */
+    align-items: center;
+
 }
+
+#contacto input,
+#contacto textarea { /* Asegúrate de usar el selector correcto */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    margin: auto;
+}
+
+#contacto input[type="submit"] {
+    background-color: #007BFF; /* Color del botón */
+    color: #fff; /* Texto blanco */
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    display: flex;
+    margin: auto;
+}
+
+#contacto input[type="submit"]:hover {
+    background-color: #0056b3; /* Color del botón en hover */
+}
+
+
 header {
     text-align: center; 
     padding: 20px; 
@@ -82,3 +122,202 @@ header img {
     max-width: 100%;
     height: auto; 
 }
+
+/* Estilo para el contenedor de productos */
+.galeria {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a la siguiente línea si no caben en una fila */
+    gap: 9px; /* Espacio entre los productos */
+    justify-content: space-around; /* Espacio igual entre los productos */
+    padding: 15px; /* Espacio alrededor del contenedor */
+    overflow-x: auto;
+  }
+  
+  /* Estilo para cada producto */
+  .producto {
+    background-color: white; /* Color de fondo del producto */
+    border: 2px solid #a7d9f4; /* Borde del producto */
+    padding: 15px; /* Espacio interno del producto */
+    border-radius: 8px; /* Esquinas redondeadas del producto */
+    width: 200px; /* Ancho fijo para cada producto (ajusta según sea necesario) */
+    box-shadow:  9px 9px rgba(8, 8, 8, 0.1); /* Sombra sutil */
+    text-align: center; /* Alinea el texto al centro */
+    transition: transform 0.3s ease;
+  }
+  .producto:hover{
+    transform: translateY(-10px);
+    background-color: #d1d1d1;
+  }
+
+  
+.productos img{
+    max-width: 100%;
+    height: auto;
+
+}
+h4 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 20px; /* Espacio superior opcional */
+    margin-bottom: 20px; /* Espacio inferior opcional */
+    font-size: 2em; /* Tamaño de fuente opcional */
+    color:#430ef0;
+  }
+  
+  /* Estilo para el botón */
+  button {
+    background-color: #007BFF; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Tamaño del botón */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Manito al pasar el cursor */
+    border-radius: 5px; /* Esquinas redondeadas */
+    margin-top: 10px; /* Espacio superior */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color de fondo azul oscuro al pasar el cursor */
+  }
+.encabezado{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+  
+.encabezado img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    margin: 0;
+    padding: 0;
+    display: block;
+    
+    
+}
+
+.slider {
+    position: relative; /* Cambia a relative para que las imágenes absolutas se alineen correctamente */
+    width: 100%;
+    height: 100vh; /* Asegúrate de que el slider tenga la altura completa del viewport */
+    overflow: hidden;
+}
+
+.slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción de las imágenes y recorta si es necesario */
+    top: 0; /* Alinea las imágenes en la parte superior del contenedor */
+    left: 100%; /* Inicialmente coloca las imágenes fuera de la vista */
+    transition: left 0.5s ease-in-out;
+}
+
+.slider img.active {
+    left: 0; /* Mueve la imagen activa a la vista */
+   
+}
+
+.slider img.previous {
+    left: -100%; /* Coloca la imagen anterior fuera de la vista por la izquierda */
+}
+
+.slider-image {
+    width: 100%; /* Ajusta el ancho de las imágenes */
+    height: auto; /* Mantiene la relación de aspecto */
+    object-fit: cover; /* Asegura que la imagen llene el contenedor */
+}
+
+
+.container {
+    width: 80%; /* Ajusta el ancho del contenedor */
+    margin: auto; /* Centra el contenedor */
+}
+img {
+    width: 100%;     /* Ajusta la imagen al ancho del contenedor */
+    height: auto;    /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen llene el contenedor */
+}
+
+nav {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px #01000000;
+    position: absolute; /* Posiciona el nav dentro del encabezado */
+    left: 0;
+    width: 100%; /* Asegura que el nav ocupe todo el ancho del contenedor */
+    background-color: rgba(158, 34, 34, 0);
+    padding: 15px; /* Ajuste del espacio interior */
+    bottom: 0;
+    z-index: 1; /* Asegura que el nav esté sobre el slider */
+}
+
+
+        /* Estilo básico para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(8, 8, 8, 0.5);
+        
+}
+
+.modal-content {
+            background-color: #f6f4f4;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #0aed8a;
+            width: 80%;
+        }
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(143, 138, 168);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header {
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+    
+
+.header a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.payment-methods {
+    margin-top: 10px;
+    padding: 60px;
+    
+}
+
+h1{
+ text-align: center;
+}
+

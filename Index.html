@@ -7,40 +7,86 @@
     <link rel="stylesheet" href="styles1.css">
 </head>
 <body>
-    <!-- Encabezado con imagen centrada -->
-    <header>
-        <img src="https://th.bing.com/th/id/OIP.HZdrxwU20QYx2q2-QEESsQHaJ3?rs=1&pid=ImgDetMain" alt="Encabezado" width="260" height="500">
-    </header>
+    <div class="encabezado">
+        <!-- Barra de navegación -->
+        <nav>
+            <ul>
+                <li><a href="#Inicio">Inicio</a></li>
+                <li><a href="#Sobre_mi">Sobre mí</a></li>
+                <li><a href="#galeria-productos">Productos</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
+            </ul>
+        </nav>
 
-    <!-- Barra de navegación -->
-    <nav>
-        <ul>
-            <li><a href="#Inicio">Inicio</a></li>
-            <li><a href="#Sobre_mi">Sobre mí</a></li>
-            <li><a href="#Contacto">Contacto</a></li>
-        </ul>
-    </nav>
+        <div class="slider">
+            <img src="assets/portada1.jpg" alt="Portada 1" class="slider-image active">
+            <img src="assets/portada2.jpg" alt="Portada 2" class="slider-image">
+            <img src="assets/portada_3.jpg" alt="Portada 3" class="slider-image">
+        </div>
+    </div>
+
+    <script src="assets/scripts/slider.js"></script>  
 
     <!-- Sección principal -->
     <section id="Inicio">
-        <h1>Inicio</h1>
-        <p>La creación de esta página es para entender comandos básicos de HTML, haciendo enlaces con carpetas externas para aplicar estilos a cada una de las secciones del HTML.</p>
+        <h1>I N I C I O</h1>
+        <p>Bienvenido a nuestra tienda en línea, donde encontrarás una selección de productos de belleza diseñados para realzar tu look y cuidar de ti. Cada artículo está cuidadosamente elegido para ofrecerte calidad y eficacia.
+            Explora nuestro catálogo y encuentra los productos perfectos para ti. Disfruta de una experiencia de compra fácil y rápida con artículos que te harán brillar.
+            ¡Gracias por visitarnos y feliz compra!</p>
     </section>
 
     <!-- Sección "Sobre mí" -->
     <section id="Sobre_mi">
-        <h2>Sobre mí</h2>
+        <h2>Q U I E N E S__S O M O S</h2>
         <ul>
-            <li>Me gusta la música</li>
-            <li>Me gustan las matemáticas</li>
-            <li>Estudio TI</li>
+            <li>Explora nuestra línea de maquillaje y transforma tu rutina de belleza</li>
+            <li>Descubre la excelencia en maquillaje donde la pasión por la belleza se encuentra con la perfección</li>
+            <li>Innovación, calidad y estilo en cada producto</li>
+            <li>Estamos comprometidos con la calidad y la innovación para que cada producto de maquillaje te haga sentir espectacular</li>
         </ul>
     </section>
 
+    <!-- Sección "Catalogo de productos" -->
+    <h4>P R O D U C T O S</h4>
+    <section id="galeria-productos">
+        <div class="galeria">
+            <div class="producto">
+                <img src="assets/blush.jpg" alt="producto 1" width="180" height="200">
+                <h3>Blush</h3>
+                <p>Sirve para añadir color a las mejillas y realzar el tono natural del rostro.</p>
+                <a href="compras/formulario_comprar.html?producto=Blush"><button type="button">Comprar</button></a>
+            </div>
+            <div class="producto">
+                <img src="assets/labial.jpg" alt="producto 2" width="180" height="220">
+                <h3>Labial</h3>
+                <p>Se utiliza para proporcionar color y un acabado duradero a los labios.</p>
+                <a href="compras/formulario_comprar.html?producto=Tinta%20de%20labios"><button type="button">Comprar</button></a>
+            </div>
+            <div class="producto">
+                <img src="assets/mascarillas.jpg" alt="producto 3" width="180" height="220">
+                <h3>Mascarillas</h3>
+                <p>Las mascarillas faciales son tratamientos que mejoran la piel al proporcionar hidratación, limpieza o exfoliación.</p>
+                <a href="compras/formulario_comprar.html?producto=Mascarillas"><button type="button">Comprar</button></a>
+            </div>
+            <div class="producto">
+                <img src="assets/iluminador.jpg" alt="producto 4" width="180" height="220">
+                <h3>Polvo de hadas</h3>
+                <p>Aporta brillo a áreas específicas del rostro.</p>
+                <a href="compras/formulario_comprar.html?producto=Polvo%20de%20hadas"><button type="button">Comprar</button></a>
+            </div>
+            <div class="producto">
+                <img src="assets/brochas.jpg" alt="producto 5" width="180" height="220">
+                <h3>Brochas</h3>
+                <p>Se utilizan para aplicar y difuminar productos de maquillaje de manera precisa y uniforme.</p>
+                <a href="compras/formulario_comprar.html?producto=Brochas"><button type="button">Comprar</button></a>
+            </div>
+        </div>
+    </section>
+
     <!-- Formulario de contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <form action="#" method="post">
+    <section id="Contacto">
+        <h2>C O N T A C T O </h2>
+        <form action="#" method="post" onsubmit="return redirigir();">
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" required>
             <br>
@@ -53,6 +99,14 @@
             <input type="submit" value="Enviar">
         </form>
     </section>
+
+    <script>
+        function redirigir() {
+            alert("Gracias por tu compra. Serás redirigido al inicio.");
+            window.location.href = "#Inicio"; // Redirige al inicio
+            return false; // Evita el envío del formulario real (puedes cambiar esto si necesitas enviar el formulario)
+        }
+    </script>
 </body>
 </html>
 
