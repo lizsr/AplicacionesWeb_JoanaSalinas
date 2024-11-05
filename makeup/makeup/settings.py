@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'makeup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Makeup',
+        'NAME': 'makeup',
         'USER':'root',
-        'PASSWORD': '',
+        'PASSWORD': 'GeRa12()',
         'HOST': 'localhost',
         'PORT': '3306'
     }
