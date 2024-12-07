@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Producto</title>
+</head>
+<body>
+    <h1>Crear Producto</h1>
+    <form action="{% url 'producto_create' %}" method="post">
+       
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'index' %}">Regresar al listado</a>
+</body>
+</html>
